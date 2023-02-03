@@ -7,7 +7,7 @@ defmodule Eager do
       {_, str} -> {:ok, str}
     end
   end
-  #evaluation of a compound structure
+
   def eval_expr({:cons, head, tail}, env) do
     case eval_expr(head, env) do
       :error -> :error
@@ -91,7 +91,6 @@ defmodule Eager do
     end
   end
 
-  #Extract all variables from a pattern, returns list
   def extract_vars(pat) do
     extract_vars(pat, [])
   end
