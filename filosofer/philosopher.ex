@@ -14,8 +14,6 @@ defmodule Philosopher do
     dream(hunger, right, left, name, ctrl)
   end
 
-  # here may comes code snippet for the function initiate according to CasperKristiansson
-
   def dream(0, _, _, name, ctrl) do
     IO.puts("Mrs. #{name} is done eating and dreaming now")
     send(ctrl, :done)
@@ -70,7 +68,7 @@ defmodule Philosopher do
       IO.puts("Mrs. #{name} failed to receive chopsticks")
       Chopstick.return(right)
       Chopstick.return(left)
-      #sleep(300) #back-off timer
+      sleep(300) #back-off timer
       dream(hunger, right, left, name, ctrl)
     end
   end
